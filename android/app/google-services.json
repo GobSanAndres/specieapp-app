@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "672950534649",
+    "project_id": "speciesapp-d3181",
+    "storage_bucket": "speciesapp-d3181.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:672950534649:android:8c0400a29fbd1eb20dbd28",
+        "android_client_info": {
+          "package_name": "com.speciesapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "672950534649-arlam21ep0i1nbck4fb082jl9o8lfkr3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTJuC4kp2dO3nJqHoG0G7fRdiw5mIPnXM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "672950534649-arlam21ep0i1nbck4fb082jl9o8lfkr3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
