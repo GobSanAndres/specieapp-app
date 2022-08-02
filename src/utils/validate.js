@@ -5,16 +5,8 @@ export const validateEmail = email => {
 };
 
 export const validateNumber = number => {
-  //   const re = /^[0-9]+$/;
-  try {
-    parseFloat(number);
-    return true;
-  } catch (error) {
-    console.log('error parsing number', error);
-    return false;
-  }
-  //   const re = /^\d+(?:\.\d{1,2})?$/;
-  //   return re.test(number);
+  const re = /^[0-9]+$/;
+  return re.test(number);
 };
 
 export const validJson = json => {
@@ -31,19 +23,31 @@ export const validJson = json => {
 
   return resp;
 };
-
-export const validDataJson = json => {
+//Se realizan ajustes necesarios para validar las preguntas con required en true
+export const validDataJson = (json, jsonRequired) => {
   let resp = true;
 
   for (var key in json) {
     if (json.hasOwnProperty(key)) {
       let tempJson = json[key];
-      if (typeof tempJson == 'string') {
-        if (tempJson.trim() == '') resp = false;
-      } else if (tempJson != null && tempJson.length == 0) resp = false;
+      if (Array.isArray(tempJson))
+        tempJson.forEach(element => {
+          for (var k in element) {
+            if (jsonRequired[k] && resp) resp = validateKeyRequired(element[k]); //Ojo agregar función
+          }
+        });
+      else if (jsonRequired[key] && resp) resp = validateKeyRequired(tempJson);
     }
   }
+  return resp;
+};
 
+//Nueva función para validar - se encarga de validar el contenido de cada key del json
+const validateKeyRequired = tempJson => {
+  let resp = true;
+  if (typeof tempJson == 'string') {
+    if (tempJson.trim() == '') resp = false;
+  }
   return resp;
 };
 
